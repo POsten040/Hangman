@@ -24,28 +24,27 @@ function App() {
           if(!correctLetters.includes(letter)) {
             setCorrectLetters(currentLetters => [...currentLetters, letter]);
           } else {
-            show(setShowNotification);
+            // show(setShowNotification);
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters(wrongLetters => [...wrongLetters, letter]);
           } else {
-            show(setShowNotifiction);
+            // show(setShowNotifiction);
           }
         }
       }
     }
     window.addEventListener('keydown', handleKeydown);
     return () => window.removeEventListener('keydown', handleKeydown);
-  }, [correctLetters, wrongLetters, playable]);
+  }, [correctLetters, wrongLetters, playable]); // Whenever one of these dependiencies are updated, it will inact the removeEventListener function. //
 
   return (
     <>
       <Header />
       <div className="game-container">
-        <Figure />
+        <Figure wrongLetters={ wrongLetters }/>
         <WrongLetters wrongLetters = {wrongLetters}/>
-        
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
     </>
