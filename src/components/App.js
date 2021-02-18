@@ -3,7 +3,9 @@ import Header from './Header';
 import Figure from './Figure';
 import WrongLetters from './WrongLetters';
 import Word from './Word';
-import {}
+import Notification from './Notification';
+import Popup from './Popup';
+import { showNotification as show } from './../helpers/helpers';
 import './../App.css';
 
 const words = ['thesaurus', 'dictionary', 'school', 'detention'];
@@ -26,13 +28,13 @@ function App() {
           if(!correctLetters.includes(letter)) {
             setCorrectLetters(currentLetters => [...currentLetters, letter]);
           } else {
-            // show(setShowNotification);
+            show(setShowNotification);
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters(wrongLetters => [...wrongLetters, letter]);
           } else {
-            // show(setShowNotifiction);
+            show(setShowNotification);
           }
         }
       }
@@ -49,6 +51,8 @@ function App() {
         <WrongLetters wrongLetters = {wrongLetters}/>
         <Word selectedWord={selectedWord} correctLetters={correctLetters} />
       </div>
+        <Popup />
+        <Notification showNotification={ showNotification }/>
     </>
   );
 } 
