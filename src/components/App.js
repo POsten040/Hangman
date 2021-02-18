@@ -3,6 +3,7 @@ import Header from './Header';
 import Figure from './Figure';
 import WrongLetters from './WrongLetters';
 import Word from './Word';
+import {}
 import './../App.css';
 
 const words = ['thesaurus', 'dictionary', 'school', 'detention'];
@@ -12,6 +13,7 @@ function App() {
   const [playable, setPlayable] = useState(true);
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
         {console.log(selectedWord)}
         {console.log(correctLetters)}
 
